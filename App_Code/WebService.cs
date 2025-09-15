@@ -466,11 +466,11 @@ namespace System.Web.Script.Services.UPS
             try
             {
                 AccountSid = System.Web.Configuration.WebConfigurationManager.AppSettings["SMS_AccountSid"];
-                if (AccountSid == "") { AccountSid = "ACc6ae8130e0021f42bc2faaf3e601507e"; }
+                if (AccountSid == "") { AccountSid = ""; }
                 AuthToken = System.Web.Configuration.WebConfigurationManager.AppSettings["SMS_AuthToken"];
-                if (AuthToken == "") { AuthToken = "76d48250dec90b1c24b8964f250c3cb0"; }
+                if (AuthToken == "") { AuthToken = ""; }
                 OurNumber = System.Web.Configuration.WebConfigurationManager.AppSettings["SMS_OurNumber"];
-                if (OurNumber == "") { OurNumber = "+15005550006"; }
+                if (OurNumber == "") { OurNumber = ""; }
                 temp = System.Web.Configuration.WebConfigurationManager.AppSettings["SendSMS_debug"];
                 if (temp != "N" && Debug != "T") { Debug = temp; }
             }
@@ -643,7 +643,7 @@ namespace System.Web.Script.Services.UPS
                 ApiUserName = System.Web.Configuration.WebConfigurationManager.AppSettings["BitLyUser"];
                 if (ApiUserName == "") { ApiUserName = " hciit"; }
                 ApiKey = System.Web.Configuration.WebConfigurationManager.AppSettings["BitLyKey"];
-                if (ApiKey == "") { ApiKey = "R_ecd1a8e09abd73276ac1e6a51900044e"; }
+                if (ApiKey == "") { ApiKey = ""; }
                 TestURL = System.Web.Configuration.WebConfigurationManager.AppSettings["BitLyTestURL"];
                 if (TestURL == "") { TestURL = "http://cnn.com"; }
                 TestModeResults = System.Web.Configuration.WebConfigurationManager.AppSettings["BitLyTestResults"];
@@ -1204,7 +1204,7 @@ namespace System.Web.Script.Services.UPS
             }
             if (ConnS == "")
             {
-                ConnS = "server=HCIDBSQL\\HCIDB;uid=sa;pwd=k3v5c2!k3v5c2;database=reports";
+                ConnS = "server=";
             }
 
             // ============================================
@@ -1619,7 +1619,7 @@ namespace System.Web.Script.Services.UPS
             }
             if (ConnS == "")
             {
-                ConnS = "server=HCIDBSQL\\HCIDB;uid=sa;pwd=k3v5c2!k3v5c2;database=reports";
+                ConnS = "server=";
             }
 
             // ============================================
@@ -2337,7 +2337,7 @@ namespace System.Web.Script.Services.UPS
             }
             if (ConnS == "")
             {
-                ConnS = "server=HCIDBSQL\\HCIDB;uid=sa;pwd=k3v5c2!k3v5c2;database=siebeldb";
+                ConnS = "server=";
             }
 
             // ============================================
@@ -3001,4 +3001,5 @@ namespace System.Web.Script.Services.UPS
     }
 
 }
+
 
