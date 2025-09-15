@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://cloudsvc.certegrity.com/ups/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://cloudsvc.certegrity.com/ups/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://cloudsvc.certegrity.com/ups/">
+      <s:element name="VerifyEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Debug" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VerifyEmailResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BitLy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="URL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Debug" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BitLyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BitLyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LinkMaker">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="URL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Tracking" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contract" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Debug" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LinkMakerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LinkMakerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UPSTrackService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TrackingNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OutFormat" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Debug" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UPSTrackServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UPSTrackServiceResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="VerifyEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:VerifyEmail" />
+  </wsdl:message>
+  <wsdl:message name="VerifyEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:VerifyEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="BitLySoapIn">
+    <wsdl:part name="parameters" element="tns:BitLy" />
+  </wsdl:message>
+  <wsdl:message name="BitLySoapOut">
+    <wsdl:part name="parameters" element="tns:BitLyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LinkMakerSoapIn">
+    <wsdl:part name="parameters" element="tns:LinkMaker" />
+  </wsdl:message>
+  <wsdl:message name="LinkMakerSoapOut">
+    <wsdl:part name="parameters" element="tns:LinkMakerResponse" />
+  </wsdl:message>
+  <wsdl:message name="UPSTrackServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:UPSTrackService" />
+  </wsdl:message>
+  <wsdl:message name="UPSTrackServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:UPSTrackServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerifyEmailHttpGetIn">
+    <wsdl:part name="sEmail" type="s:string" />
+    <wsdl:part name="Debug" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VerifyEmailHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="BitLyHttpGetIn">
+    <wsdl:part name="URL" type="s:string" />
+    <wsdl:part name="Debug" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BitLyHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LinkMakerHttpGetIn">
+    <wsdl:part name="URL" type="s:string" />
+    <wsdl:part name="Tracking" type="s:string" />
+    <wsdl:part name="Contract" type="s:string" />
+    <wsdl:part name="Debug" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LinkMakerHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UPSTrackServiceHttpGetIn">
+    <wsdl:part name="TrackingNumber" type="s:string" />
+    <wsdl:part name="OutFormat" type="s:string" />
+    <wsdl:part name="Debug" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UPSTrackServiceHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="VerifyEmailHttpPostIn">
+    <wsdl:part name="sEmail" type="s:string" />
+    <wsdl:part name="Debug" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VerifyEmailHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="BitLyHttpPostIn">
+    <wsdl:part name="URL" type="s:string" />
+    <wsdl:part name="Debug" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BitLyHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LinkMakerHttpPostIn">
+    <wsdl:part name="URL" type="s:string" />
+    <wsdl:part name="Tracking" type="s:string" />
+    <wsdl:part name="Contract" type="s:string" />
+    <wsdl:part name="Debug" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LinkMakerHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UPSTrackServiceHttpPostIn">
+    <wsdl:part name="TrackingNumber" type="s:string" />
+    <wsdl:part name="OutFormat" type="s:string" />
+    <wsdl:part name="Debug" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UPSTrackServiceHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:portType name="UPSServicesSoap">
+    <wsdl:operation name="VerifyEmail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verify an email address</wsdl:documentation>
+      <wsdl:input message="tns:VerifyEmailSoapIn" />
+      <wsdl:output message="tns:VerifyEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BitLy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Perform a bit.ly contraction of a URL</wsdl:documentation>
+      <wsdl:input message="tns:BitLySoapIn" />
+      <wsdl:output message="tns:BitLySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LinkMaker">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Generate a contracted link for use in email</wsdl:documentation>
+      <wsdl:input message="tns:LinkMakerSoapIn" />
+      <wsdl:output message="tns:LinkMakerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UPSTrackService">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Track a UPS package</wsdl:documentation>
+      <wsdl:input message="tns:UPSTrackServiceSoapIn" />
+      <wsdl:output message="tns:UPSTrackServiceSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="UPSServicesHttpGet">
+    <wsdl:operation name="VerifyEmail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verify an email address</wsdl:documentation>
+      <wsdl:input message="tns:VerifyEmailHttpGetIn" />
+      <wsdl:output message="tns:VerifyEmailHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BitLy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Perform a bit.ly contraction of a URL</wsdl:documentation>
+      <wsdl:input message="tns:BitLyHttpGetIn" />
+      <wsdl:output message="tns:BitLyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LinkMaker">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Generate a contracted link for use in email</wsdl:documentation>
+      <wsdl:input message="tns:LinkMakerHttpGetIn" />
+      <wsdl:output message="tns:LinkMakerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UPSTrackService">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Track a UPS package</wsdl:documentation>
+      <wsdl:input message="tns:UPSTrackServiceHttpGetIn" />
+      <wsdl:output message="tns:UPSTrackServiceHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="UPSServicesHttpPost">
+    <wsdl:operation name="VerifyEmail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verify an email address</wsdl:documentation>
+      <wsdl:input message="tns:VerifyEmailHttpPostIn" />
+      <wsdl:output message="tns:VerifyEmailHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BitLy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Perform a bit.ly contraction of a URL</wsdl:documentation>
+      <wsdl:input message="tns:BitLyHttpPostIn" />
+      <wsdl:output message="tns:BitLyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LinkMaker">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Generate a contracted link for use in email</wsdl:documentation>
+      <wsdl:input message="tns:LinkMakerHttpPostIn" />
+      <wsdl:output message="tns:LinkMakerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UPSTrackService">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Track a UPS package</wsdl:documentation>
+      <wsdl:input message="tns:UPSTrackServiceHttpPostIn" />
+      <wsdl:output message="tns:UPSTrackServiceHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UPSServicesSoap" type="tns:UPSServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VerifyEmail">
+      <soap:operation soapAction="http://cloudsvc.certegrity.com/ups/VerifyEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BitLy">
+      <soap:operation soapAction="http://cloudsvc.certegrity.com/ups/BitLy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LinkMaker">
+      <soap:operation soapAction="http://cloudsvc.certegrity.com/ups/LinkMaker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UPSTrackService">
+      <soap:operation soapAction="http://cloudsvc.certegrity.com/ups/UPSTrackService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UPSServicesSoap12" type="tns:UPSServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VerifyEmail">
+      <soap12:operation soapAction="http://cloudsvc.certegrity.com/ups/VerifyEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BitLy">
+      <soap12:operation soapAction="http://cloudsvc.certegrity.com/ups/BitLy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LinkMaker">
+      <soap12:operation soapAction="http://cloudsvc.certegrity.com/ups/LinkMaker" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UPSTrackService">
+      <soap12:operation soapAction="http://cloudsvc.certegrity.com/ups/UPSTrackService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UPSServicesHttpGet" type="tns:UPSServicesHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="VerifyEmail">
+      <http:operation location="/VerifyEmail" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BitLy">
+      <http:operation location="/BitLy" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LinkMaker">
+      <http:operation location="/LinkMaker" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UPSTrackService">
+      <http:operation location="/UPSTrackService" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UPSServicesHttpPost" type="tns:UPSServicesHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="VerifyEmail">
+      <http:operation location="/VerifyEmail" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BitLy">
+      <http:operation location="/BitLy" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LinkMaker">
+      <http:operation location="/LinkMaker" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UPSTrackService">
+      <http:operation location="/UPSTrackService" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UPSServices">
+    <wsdl:port name="UPSServicesSoap" binding="tns:UPSServicesSoap">
+      <soap:address location="http://localhost:1403/UPSServices/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UPSServicesSoap12" binding="tns:UPSServicesSoap12">
+      <soap12:address location="http://localhost:1403/UPSServices/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UPSServicesHttpGet" binding="tns:UPSServicesHttpGet">
+      <http:address location="http://localhost:1403/UPSServices/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UPSServicesHttpPost" binding="tns:UPSServicesHttpPost">
+      <http:address location="http://localhost:1403/UPSServices/WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
