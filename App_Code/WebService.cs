@@ -2346,7 +2346,7 @@ namespace System.Web.Script.Services.UPS
             //try
             //{
             //    GoogleAPIKey = System.Web.Configuration.WebConfigurationManager.AppSettings["GoogleAPIKey"];
-            //    if (GoogleAPIKey == "") { GoogleAPIKey = "AIzaSyA7VtZQfJ1DTnAvqNk8hFCYIkN1uf45zxE"; }
+            //    if (GoogleAPIKey == "") { GoogleAPIKey = ""; }
             //}
             //catch (Exception e)
             //{
@@ -2965,7 +2965,7 @@ namespace System.Web.Script.Services.UPS
         {
             string GoogleAPIKey = "";
             GoogleAPIKey = System.Web.Configuration.WebConfigurationManager.AppSettings["GoogleAPIKey"];
-            if (GoogleAPIKey == "") { GoogleAPIKey = "AIzaSyB6yoKJuoFUkMMdcWEh2GamWJT4GIJiTig"; }
+            if (GoogleAPIKey == "") { GoogleAPIKey = ""; }
             return GoogleAPIKey;
         }
 
@@ -3001,3 +3001,4 @@ namespace System.Web.Script.Services.UPS
     }
 
 }
+
