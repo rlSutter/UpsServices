@@ -844,7 +844,7 @@ namespace System.Web.Script.Services.UPS
             }
             if (ConnS == "")
             {
-                ConnS = "server=HCIDBSQL\\HCIDB;uid=sa;pwd=k3v5c2!k3v5c2;database=reports";
+                ConnS = "server=";
             }
 
             // ============================================
@@ -2999,4 +2999,5 @@ namespace System.Web.Script.Services.UPS
             return translations;
         }
     }
+
 }
